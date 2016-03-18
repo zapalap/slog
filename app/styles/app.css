@@ -1,0 +1,133 @@
+.slog-navbar {
+    background-color: #59A0D7  !important;
+    border-radius:0px !important;
+    border-color:#59A0D7 !important;
+    min-height:40px !important;
+    height:20px !important;
+    margin-bottom:0px !important;
+}
+
+.slog-navbar li a {
+    color:white !important;
+    padding-top:0px;
+}
+
+.slog-brand {
+    color:white !important;
+    padding:9px !important;
+}
+
+.log-entry {
+    vertical-align: middle;
+    font-size:16px;
+    color:#59A0D7;
+    margin:2px;
+    display:inline-block;
+}
+
+.bracket {
+    font-weight: bold;
+    font-size:20px;
+    padding-left:2px;
+    padding-right: 2px;
+    color:#59A0D7;
+}
+
+.timestamp {
+    color:hotpink !important;
+    margin-left:5px;
+    font-weight: bold;
+}
+
+.monitor-area {
+    background-color:#303030;
+    border-top:2px solid hotpink;
+}
+
+.log-view {
+    padding:10px;
+}
+
+.log-view-titlebar {
+    padding:10px;
+    border-bottom:2px solid hotpink;
+}
+
+.log-view-title {
+    font-size:22px;
+    color:#59A0D7;
+}
+
+.log-view-title.left {
+    text-align:left;
+}
+
+.log-view-title.right {
+    text-align:right;
+}
+
+@keyframes mark {
+    from {background-color: #64C7CC;}
+    to {background-color:hotpink;}
+}
+
+@keyframes mark-border-bottom {
+    from {border-bottom: 5.77px solid #64C7CC;}
+    to {border-bottom: 5.77px solid hotpink;}
+}
+
+@keyframes mark-border-top {
+    from {border-top: 5.77px solid #64C7CC;}
+    to {border-top: 5.77px solid hotpink;}
+}
+
+
+.hexagon {
+  vertical-align: middle;
+  position: relative;
+  width: 20px; 
+  height: 11.55px;
+  background-color: #64C7CC;
+  margin: 5.77px 0;
+  display:inline-block;
+  top:1px;
+  
+}
+
+.hexagon.marked {
+    background-color:hotpink;
+    animation-name:mark;
+    animation-duration:0.5s;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 5.77px solid #64C7CC;
+}
+
+.hexagon.marked:before {
+    border-bottom: 5.77px solid hotpink;
+    animation-name:mark-border-bottom;
+    animation-duration:0.5s;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 5.77px solid #64C7CC;
+}
+
+.hexagon.marked:after {
+    border-top: 5.77px solid hotpink;
+    animation-name:mark-border-top;
+    animation-duration:0.5s;
+}

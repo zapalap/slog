@@ -1,3 +1,26 @@
-<h2 id="title">Welcome to Ember</h2>
+<nav class="navbar navbar-default slog-navbar">
+    <div class="container-fluid"> 
+        <a class="navbar-brand slog-brand" href="#">Slog</a>
+        <ul class="navbar-nav nav">
+        <li>
+        {{#link-to "hud"}}
+             HUD
+        {{/link-to}}
+     </li>
+     <li>
+        {{#link-to "about"}}
+             About
+        {{/link-to}}
+     </li>
+   </ul>
+    </div>
+    
+</nav>
 
-{{outlet}}
+
+
+<div class="block">
+    <div class="monitor-area">
+        {{outlet}}
+    </div>
+</div>
