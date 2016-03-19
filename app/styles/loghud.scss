@@ -4,7 +4,13 @@
     color:$color-main;
     margin:2px;
     display:inline-block;
+    padding:2px;
 }
+
+.log-entry.marked {
+    background-color:$color-background-marked;
+}
+
 
 .bracket {
     font-weight: bold;
@@ -14,10 +20,15 @@
     color:$color-main;
 }
 
+
 .timestamp {
-    color:$color-highlight !important;
+    color:$color-highlight;
     margin-left:5px;
     font-weight: bold;
+}
+
+.log-entry.marked > .timestamp {
+    background-color:$color-background-marked;
 }
 
 .monitor-area {
