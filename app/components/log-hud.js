@@ -18,6 +18,7 @@ export default Ember.Component.extend({
         clearAllSelectedLogLines() {
             this.get('logEntryList').forEach(function(model) {
                model.set('isMarked', false); 
+               model.set('isDimmed', false);
             });
            this.set('atLeastOneMarked', false);
         },
