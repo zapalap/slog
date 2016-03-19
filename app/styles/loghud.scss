@@ -1,0 +1,55 @@
+.log-entry {
+    vertical-align: middle;
+    font-size:16px;
+    color:$color-main;
+    margin:2px;
+    display:inline-block;
+}
+
+.bracket {
+    font-weight: bold;
+    font-size:20px;
+    padding-left:2px;
+    padding-right: 2px;
+    color:$color-main;
+}
+
+.timestamp {
+    color:$color-highlight !important;
+    margin-left:5px;
+    font-weight: bold;
+}
+
+.monitor-area {
+    background-color:$color-text-background;
+}
+
+.log-view {
+    padding:10px 10px 10px 10px;
+}
+
+.log-view-titlebar {
+    padding:10px 10px 10px 10px;
+    background-color: $color-highlight;
+    z-index:1000;
+}
+
+.log-view-titlebar.affix {
+    width:100%;
+    padding:5px;
+    top:0;
+}
+
+.log-view-title {
+    font-size:16px;
+    color:white;
+    font-weight: bold;
+}
+
+.log-view-title.left {
+    text-align:left;
+}
+
+.log-view-title.right {
+    text-align:right;
+}

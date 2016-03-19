@@ -1,0 +1,64 @@
+@keyframes mark {
+    from {background-color: $color-main;}
+    to {background-color:$color-highlight;}
+}
+
+@keyframes mark-border-bottom {
+    from {border-bottom: 5.77px solid $color-main;}
+    to {border-bottom: 5.77px solid $color-highlight;}
+}
+
+@keyframes mark-border-top {
+    from {border-top: 5.77px solid $color-main;}
+    to {border-top: 5.77px solid $color-highlight;}
+}
+
+.hexagon {
+  vertical-align: middle;
+  position: relative;
+  width: 20px; 
+  height: 11.55px;
+  background-color: $color-main;
+  margin: 5.77px 0;
+  display:inline-block;
+  top:1px;
+  
+}
+
+.hexagon.marked {
+    background-color:$color-highlight;
+    animation-name:mark;
+    animation-duration:0.5s;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 5.77px solid $color-main;
+}
+
+.hexagon.marked:before {
+    border-bottom: 5.77px solid $color-highlight;
+    animation-name:mark-border-bottom;
+    animation-duration:0.5s;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 5.77px solid $color-main
+}
+
+.hexagon.marked:after {
+    border-top: 5.77px solid $color-highlight;
+    animation-name:mark-border-top;
+    animation-duration:0.5s;
+}
