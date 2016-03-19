@@ -6,7 +6,7 @@ export default Ember.Component.extend({
             logEntry.set('isMarked', true);
             this.get('onMark')();
         },
-        logLineUnmarked() {
+        logLineUnmarked(logEntry) {
             logEntry.set('isMarked', false);
             this.get('onUnmark')();
         }
