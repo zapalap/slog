@@ -20,9 +20,16 @@ export default Ember.Component.extend({
             }
             console.log(this.get('markedEntries'));
             if (Object.keys(this.get('markedEntries')).length <= 0) {
-                console.log('setting');
                 this.set('atLeastOneMarked', false);
             }
+        },
+        clearAllSelectedLogLines() {
+           this.set('markedEntries', {});
+           this.set('atLeastOneMarked', false);
         }
-    }
+    },
+    attributeBindings:[
+        'dataSpy:data-spy'
+    ],
+    dataSpy:'affix'
 });

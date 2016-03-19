@@ -1,9 +1,12 @@
 <div class="log-view-titlebar" data-spy="affix">
-    <div class="log-view-title">Source: some random logs</div>
-    {{#if atLeastOneMarked}}
-        {{#dynamic-menu}} 
-        {{/dynamic-menu}}
-    {{/if}}
+    <div class="log-view-title">Source: some random logs
+        <div class="pull-right">
+        {{#if atLeastOneMarked}}
+            {{#dynamic-menu onClearAll=(action "clearAllSelectedLogLines")}} 
+            {{/dynamic-menu}}
+        {{/if}}
+        </div>
+    </div>
 </div>
 
 <div class="log-view">

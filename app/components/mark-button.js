@@ -4,7 +4,7 @@ export default Ember.Component.extend({
     tagName:'span',
     isMarked:false,
     actions:{
-        markClicked() {
+        clicked() {
             var marked = this.get('isMarked');
             if(marked) {
                this.get('onUnmark')(); 
