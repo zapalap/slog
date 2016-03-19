@@ -1,7 +1,10 @@
+@import "bootstrap";
+@import "_variables";
+
 .slog-navbar {
-    background-color: #779F9F !important;
+    background-color: $color-main !important;
     border-radius:0px !important;
-    border-color:#779F9F !important;
+    border-color:$color-main !important;
     min-height:40px !important;
     height:20px !important;
     margin-bottom:0px !important;
@@ -20,7 +23,7 @@
 .log-entry {
     vertical-align: middle;
     font-size:16px;
-    color:#779F9F;
+    color:$color-main;
     margin:2px;
     display:inline-block;
 }
@@ -30,17 +33,17 @@
     font-size:20px;
     padding-left:2px;
     padding-right: 2px;
-    color:#779F9F;
+    color:$color-main;
 }
 
 .timestamp {
-    color:#B34F4F !important;
+    color:$color-highlight !important;
     margin-left:5px;
     font-weight: bold;
 }
 
 .monitor-area {
-    background-color:#1D1D1D;
+    background-color:$color-text-background;
 }
 
 .log-view {
@@ -49,7 +52,7 @@
 
 .log-view-titlebar {
     padding:10px 10px 10px 10px;
-    background-color: #B34F4F;
+    background-color: $color-highlight;
     z-index:1000;
 }
 
@@ -75,22 +78,22 @@
 
 .dynamic-menu {
     padding:10px;
-    background-color:#1D1D1D;
+    background-color:$color-text-background;
 }
 
 @keyframes mark {
-    from {background-color: #779F9F;}
-    to {background-color:#B34F4F;}
+    from {background-color: $color-main;}
+    to {background-color:$color-highlight;}
 }
 
 @keyframes mark-border-bottom {
-    from {border-bottom: 5.77px solid #779F9F;}
-    to {border-bottom: 5.77px solid #B34F4F;}
+    from {border-bottom: 5.77px solid $color-main;}
+    to {border-bottom: 5.77px solid $color-highlight;}
 }
 
 @keyframes mark-border-top {
-    from {border-top: 5.77px solid #779F9F;}
-    to {border-top: 5.77px solid #B34F4F;}
+    from {border-top: 5.77px solid $color-main;}
+    to {border-top: 5.77px solid $color-highlight;}
 }
 
 
@@ -99,7 +102,7 @@
   position: relative;
   width: 20px; 
   height: 11.55px;
-  background-color: #779F9F;
+  background-color: $color-main;
   margin: 5.77px 0;
   display:inline-block;
   top:1px;
@@ -107,7 +110,7 @@
 }
 
 .hexagon.marked {
-    background-color:#B34F4F;
+    background-color:$color-highlight;
     animation-name:mark;
     animation-duration:0.5s;
 }
@@ -123,11 +126,11 @@
 
 .hexagon:before {
   bottom: 100%;
-  border-bottom: 5.77px solid #779F9F;
+  border-bottom: 5.77px solid $color-main;
 }
 
 .hexagon.marked:before {
-    border-bottom: 5.77px solid #B34F4F;
+    border-bottom: 5.77px solid $color-highlight;
     animation-name:mark-border-bottom;
     animation-duration:0.5s;
 }
@@ -135,11 +138,11 @@
 .hexagon:after {
   top: 100%;
   width: 0;
-  border-top: 5.77px solid #779F9F
+  border-top: 5.77px solid $color-main
 }
 
 .hexagon.marked:after {
-    border-top: 5.77px solid #B34F4F;
+    border-top: 5.77px solid $color-highlight;
     animation-name:mark-border-top;
     animation-duration:0.5s;
 }
