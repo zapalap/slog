@@ -1,5 +1,6 @@
 <div class="log-line">
-   <div {{action "markEntry" logEntry}} class="hexagon {{if logEntry.isMarked "marked"}}"></div>
+   {{#mark-button isMarked=isMarked model=logEntry onMark=(action "logLineMarkButtonClicked")}}
+   {{/mark-button}}
     <div class="log-entry">
         <span class="timestamp">
             <span class="bracket">[</span>
