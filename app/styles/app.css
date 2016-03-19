@@ -1,7 +1,7 @@
 .slog-navbar {
-    background-color: #59A0D7  !important;
+    background-color: #779F9F !important;
     border-radius:0px !important;
-    border-color:#59A0D7 !important;
+    border-color:#779F9F !important;
     min-height:40px !important;
     height:20px !important;
     margin-bottom:0px !important;
@@ -20,7 +20,7 @@
 .log-entry {
     vertical-align: middle;
     font-size:16px;
-    color:#59A0D7;
+    color:#779F9F;
     margin:2px;
     display:inline-block;
 }
@@ -30,32 +30,39 @@
     font-size:20px;
     padding-left:2px;
     padding-right: 2px;
-    color:#59A0D7;
+    color:#779F9F;
 }
 
 .timestamp {
-    color:hotpink !important;
+    color:#B34F4F !important;
     margin-left:5px;
     font-weight: bold;
 }
 
 .monitor-area {
-    background-color:#303030;
-    border-top:2px solid hotpink;
+    background-color:#1D1D1D;
 }
 
 .log-view {
-    padding:10px;
+    padding:10px 10px 10px 10px;
 }
 
 .log-view-titlebar {
-    padding:10px;
-    border-bottom:2px solid hotpink;
+    padding:10px 10px 10px 10px;
+    background-color: #B34F4F;
+    z-index:1000;
+}
+
+.log-view-titlebar.affix {
+    width:100%;
+    padding:5px;
+    top:0;
 }
 
 .log-view-title {
-    font-size:22px;
-    color:#59A0D7;
+    font-size:16px;
+    color:white;
+    font-weight: bold;
 }
 
 .log-view-title.left {
@@ -66,19 +73,24 @@
     text-align:right;
 }
 
+.dynamic-menu {
+    padding:10px;
+    background-color:#1D1D1D;
+}
+
 @keyframes mark {
-    from {background-color: #64C7CC;}
-    to {background-color:hotpink;}
+    from {background-color: #779F9F;}
+    to {background-color:#B34F4F;}
 }
 
 @keyframes mark-border-bottom {
-    from {border-bottom: 5.77px solid #64C7CC;}
-    to {border-bottom: 5.77px solid hotpink;}
+    from {border-bottom: 5.77px solid #779F9F;}
+    to {border-bottom: 5.77px solid #B34F4F;}
 }
 
 @keyframes mark-border-top {
-    from {border-top: 5.77px solid #64C7CC;}
-    to {border-top: 5.77px solid hotpink;}
+    from {border-top: 5.77px solid #779F9F;}
+    to {border-top: 5.77px solid #B34F4F;}
 }
 
 
@@ -87,7 +99,7 @@
   position: relative;
   width: 20px; 
   height: 11.55px;
-  background-color: #64C7CC;
+  background-color: #779F9F;
   margin: 5.77px 0;
   display:inline-block;
   top:1px;
@@ -95,7 +107,7 @@
 }
 
 .hexagon.marked {
-    background-color:hotpink;
+    background-color:#B34F4F;
     animation-name:mark;
     animation-duration:0.5s;
 }
@@ -111,11 +123,11 @@
 
 .hexagon:before {
   bottom: 100%;
-  border-bottom: 5.77px solid #64C7CC;
+  border-bottom: 5.77px solid #779F9F;
 }
 
 .hexagon.marked:before {
-    border-bottom: 5.77px solid hotpink;
+    border-bottom: 5.77px solid #B34F4F;
     animation-name:mark-border-bottom;
     animation-duration:0.5s;
 }
@@ -123,11 +135,11 @@
 .hexagon:after {
   top: 100%;
   width: 0;
-  border-top: 5.77px solid #64C7CC;
+  border-top: 5.77px solid #779F9F
 }
 
 .hexagon.marked:after {
-    border-top: 5.77px solid hotpink;
+    border-top: 5.77px solid #B34F4F;
     animation-name:mark-border-top;
     animation-duration:0.5s;
 }
