@@ -1,11 +1,11 @@
 <div class="log-line">
-   <div {{action "markEntry" logEntry}}class="hexagon {{if logEntry.isMarked "marked"}}"></div>
+   <div {{action "markEntry" logEntry}} class="hexagon {{if logEntry.isMarked "marked"}}"></div>
     <div class="log-entry">
         <span class="timestamp">
             <span class="bracket">[</span>
           {{logEntry.timestamp}}
             <span class="bracket">]</span>
         </span>
-        logEntry.verboseMessage}}
+        {{logEntry.verboseMessage}}
     </div>
 </div>

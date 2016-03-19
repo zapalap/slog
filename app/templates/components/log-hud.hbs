@@ -1,0 +1,11 @@
+<div class="log-view-titlebar">
+    <div class="log-view-title">Slog --- demo HUD</div>
+</div>
+<div class="log-view">
+  {{#each logEntryList as |logEntry|}}
+    {{#log-line logEntry=logEntry}}
+    {{/log-line}}
+  {{else}}
+      <div class="placeholder-message">Nothing to see here...</div>
+  {{/each}}
+</div>
