@@ -2,7 +2,7 @@
     <div class="log-view-title">Source: some random logs
         <div class="pull-right">
         {{#if atLeastOneMarked}}
-            {{#dynamic-menu onClearAll=(action "clearAllSelectedLogLines")}} 
+            {{#dynamic-menu onClearAll=(action "clearAllSelectedLogLines") onDimAllNotSelected=(action "dimAllNotSelectedLogLines")}} 
             {{/dynamic-menu}}
         {{/if}}
         </div>

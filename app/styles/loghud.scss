@@ -11,6 +11,9 @@
     background-color:$color-background-marked;
 }
 
+.log-entry.dimmed {
+    color:$color-main-dimmed;
+}
 
 .bracket {
     font-weight: bold;
@@ -20,6 +23,9 @@
     color:$color-main;
 }
 
+.log-entry.dimmed > .timestamp > .bracket {
+    color:$color-main-dimmed;   
+}
 
 .timestamp {
     color:$color-highlight;
@@ -29,6 +35,9 @@
 
 .log-entry.marked > .timestamp {
     background-color:$color-background-marked;
+}
+.log-entry.dimmed > .timestamp {
+    color:$color-highlight-dimmed;
 }
 
 .monitor-area {

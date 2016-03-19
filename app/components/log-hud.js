@@ -20,6 +20,14 @@ export default Ember.Component.extend({
                model.set('isMarked', false); 
             });
            this.set('atLeastOneMarked', false);
+        },
+        dimAllNotSelectedLogLines() {
+            var notSelected = this.get('logEntryList').filterBy('isMarked', false);
+            
+            notSelected.forEach(function(model) {
+                 console.log(model);
+                model.set('isDimmed', !model.get('isDimmed'));
+            });
         }
     },
     attributeBindings:[

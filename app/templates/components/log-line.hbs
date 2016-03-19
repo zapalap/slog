@@ -1,7 +1,7 @@
 <div class="log-line">
    {{#mark-button isMarked=logEntry.isMarked model=logEntry onMark=(action "logLineMarked" logEntry) onUnmark=(action "logLineUnmarked" logEntry)}}
    {{/mark-button}}
-    <div class="log-entry {{if logEntry.isMarked "marked"}}">
+    <div class="log-entry {{if logEntry.isMarked "marked"}} {{if logEntry.isDimmed "dimmed"}}">
         <span class="timestamp">
             <span class="bracket">[</span>
           {{logEntry.timestamp}}

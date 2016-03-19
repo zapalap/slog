@@ -6,6 +6,7 @@ export default DS.Model.extend({
   showing: DS.attr('boolean'),
   timestamp:DS.attr('string'),
   isMarked:DS.attr('boolean'),
+  isDimmed:DS.attr('boolean'),
   
   brief:Ember.computed('verboseMessage', function(){
      return this.get('verboseMessage').substr(0, 10);
