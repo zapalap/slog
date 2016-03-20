@@ -5,6 +5,7 @@ export default Mirage.Factory.extend({
     shortMessage:'Costam',
     showing:true,
     isMarked:false,
+    isVisible:true,
     timestamp(i) { 
         var d = new Date();
         return d.getHours() + ':' +d.getMinutes() + ':' + d.getSeconds();

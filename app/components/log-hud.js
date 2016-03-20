@@ -12,6 +12,9 @@ export default Ember.Component.extend({
             var marked = this.get('logEntryList').isAny('isMarked', true);
             
             if (!marked) {
+                this.get('logEntryList').forEach(function(model) {
+                model.set('isDimmed', false);
+                });
                 this.set('atLeastOneMarked', false);
             }
         },
@@ -34,5 +37,5 @@ export default Ember.Component.extend({
     attributeBindings:[
         'dataSpy:data-spy'
     ],
-    dataSpy:'affix'
+    dataSpy:'affix',
 });

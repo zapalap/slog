@@ -11,8 +11,10 @@
 
 <div class="log-view">
   {{#each logEntryList as |logEntry|}}
-    {{#log-line logEntry=logEntry onMark=(action "lineMarked" logEntry) onUnmark=(action "lineUnmarked" logEntry)}}
-    {{/log-line}}
+    {{#if logEntry.isVisible}}
+        {{#log-line logEntry=logEntry onMark=(action "lineMarked" logEntry) onUnmark=(action "lineUnmarked" logEntry)}}
+        {{/log-line}}
+   {{/if}}
   {{else}}
       <div class="placeholder-message">Nothing to see here...</div>
   {{/each}}
