@@ -42,7 +42,6 @@ export default Ember.Component.extend({
                } else if (model.get('isVisible') === false) {
                    model.set('isVisible', true);
                }
-               
             });
         }
     },

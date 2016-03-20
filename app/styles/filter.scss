@@ -1,0 +1,22 @@
+.filter-input {
+    background-color:$color-text-background;
+    color:$color-highlight;
+    border-radius: 0px;
+    border-color:$color-main;
+}
+
+.filter-input:focus {
+    border-color:$color-main;
+}
+
+.search-container {
+    padding:10px 10px 10px 10px;
+    background-color:$color-background-marked;
+    color:$color-main;
+}
+
+.input-group-addon {
+    background-color:$color-background-marked;
+    color:$color-highlight;
+    border-color:$color-main;
+}
