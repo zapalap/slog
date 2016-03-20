@@ -1,16 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    menuShouldShow:Ember.computed('atLeastOneMarked', 'filterIsNotEmpty', function(){
+        return this.get('atLeastOneMarked') || this.get('filterIsNotEmpty');
+    }),
     atLeastOneMarked:false,
+    filterIsNotEmpty:false,
     actions:{
         lineMarked(logEntry) {
-            if(!this.get('atLeastOneMarked')) {
-                this.set('atLeastOneMarked', true);
-            }
+           this.set('atLeastOneMarked', true);
         },
         lineUnmarked(logEntry) {
             var marked = this.get('logEntryList').isAny('isMarked', true);
-            
             if (!marked) {
                 this.get('logEntryList').forEach(function(model) {
                 model.set('isDimmed', false);
@@ -18,7 +19,7 @@ export default Ember.Component.extend({
                 this.set('atLeastOneMarked', false);
             }
         },
-        clearAllSelectedLogLines() {
+        resetAllLogLines() {
             this.get('logEntryList').forEach(function(model) {
                model.set('isMarked', false); 
                model.set('isDimmed', false);
@@ -34,10 +35,15 @@ export default Ember.Component.extend({
             });
         },
         filterAllLogLines(filterValue) {
+            if (filterValue.length > 0) {
+                this.set('filterIsNotEmpty', true);
+            } else {
+                this.set('filterIsNotEmpty', false);
+            }
+            
             this.get('logEntryList').forEach(function(model) {
                 console.log(model.get('verboseMessage'), model.get('verboseMessage').indexOf(filterValue));
                if(model.get('verboseMessage').indexOf(filterValue) === -1) {
-                   console.log('falsinglol');
                    model.set('isVisible', false);
                } else if (model.get('isVisible') === false) {
                    model.set('isVisible', true);
@@ -45,6 +51,7 @@ export default Ember.Component.extend({
             });
         }
     },
+  
     attributeBindings:[
         'dataSpy:data-spy'
     ],

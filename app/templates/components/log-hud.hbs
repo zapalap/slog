@@ -5,8 +5,8 @@
     <div class="log-view-title">
         <span>Source: some random logs</span>
         <div class="pull-right">
-        {{#if atLeastOneMarked}}
-            {{#dynamic-menu onClearAll=(action "clearAllSelectedLogLines") onDimAllNotSelected=(action "dimAllNotSelectedLogLines") }} 
+        {{#if menuShouldShow}}
+            {{#dynamic-menu onResetAll=(action "resetAllLogLines") onDimAllNotSelected=(action "dimAllNotSelectedLogLines") }} 
             {{/dynamic-menu}}
         {{/if}}
        
