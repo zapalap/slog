@@ -7,6 +7,6 @@ export default Ember.Component.extend({
         },
         dimAllClicked() {
             this.get('onDimAllNotSelected')();
-        }
+        },
     }
 });

@@ -32,6 +32,18 @@ export default Ember.Component.extend({
                  console.log(model);
                 model.set('isDimmed', !model.get('isDimmed'));
             });
+        },
+        filterAllLogLines(filterValue) {
+            this.get('logEntryList').forEach(function(model) {
+                console.log(model.get('verboseMessage'), model.get('verboseMessage').indexOf(filterValue));
+               if(model.get('verboseMessage').indexOf(filterValue) === -1) {
+                   console.log('falsinglol');
+                   model.set('isVisible', false);
+               } else if (model.get('isVisible') === false) {
+                   model.set('isVisible', true);
+               }
+               
+            });
         }
     },
     attributeBindings:[
