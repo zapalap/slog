@@ -1,9 +1,7 @@
 <div class="dynamic-menu">
-    {{#menu-button text="Reset" onClick=(action "resetAllClicked")}}
+    {{#menu-button text="Reset" onClick=(action onResetAll)}}
     {{/menu-button}}
-    
-    {{#menu-button text="Dim toggle" onClick=(action "dimAllClicked")}}
+
+    {{#menu-button text="Dim toggle" onClick=(action onDimAllNotSelected)}}
     {{/menu-button}}
-    
-    
 </div>

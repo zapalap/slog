@@ -1,31 +1,27 @@
 
 
 <div class="log-view-titlebar" data-spy="affix">
-
     <div class="log-view-title">
         <span>Source: some random logs</span>
         <div class="pull-right">
         {{#if menuShouldShow}}
-            {{#dynamic-menu onResetAll=(action "resetAllLogLines") onDimAllNotSelected=(action "dimAllNotSelectedLogLines") }} 
+            {{#dynamic-menu onResetAll=(action "resetAllLogLines") onDimAllNotSelected=(action "dimAllNotSelectedLogLines") }}
             {{/dynamic-menu}}
         {{/if}}
-       
         </div>
     </div>
-     
+
 </div>
 <div class="search-container">
-    {{#filter-input onFilterChanged=(action "filterAllLogLines")}}{{/filter-input}} 
+    {{#filter-input inputValue=filterValue}}{{/filter-input}}
 </div>
 
-    
+
 
 <div class="log-view">
-  {{#each logEntryList as |logEntry|}}
-    {{#if logEntry.isVisible}}
+  {{#each filteredLogs as |logEntry|}}
         {{#log-line logEntry=logEntry onMark=(action "lineMarked" logEntry) onUnmark=(action "lineUnmarked" logEntry)}}
         {{/log-line}}
-   {{/if}}
   {{else}}
       <div class="placeholder-message">Nothing to see here...</div>
   {{/each}}
