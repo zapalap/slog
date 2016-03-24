@@ -1,6 +1,24 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  socketService: Ember.inject.service('socket-io'),
+
+  willRender() {
+    var self = this;
+    const socket = this.get('socketService').socketFor('http://localhost:3000');
+    socket.on('message', function(event) {
+      let newEntry = {
+          verboseMessage:event.data.text,
+          shortMessage:event.data.text,
+          showing:true,
+          isMarked:false,
+          isVisible:true,
+          timestamp:event.data.timestamp
+      }
+      console.log(newEntry);
+      self.get('logEntryList').pushObject(newEntry);
+    })
+  },
   menuShouldShow: Ember.computed.or('atLeastOneMarked', 'filterIsNotEmpty'),
   atLeastOneMarked: false,
   filterIsNotEmpty: Ember.computed.notEmpty('filterValue'),

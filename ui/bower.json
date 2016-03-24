@@ -9,6 +9,7 @@
     "lodash": "~3.7.0",
     "Faker": "~3.0.0",
     "bootstrap-sass": "^3.3.6",
-    "uri.js": "^1.17.1"
+    "uri.js": "^1.17.1",
+    "socket.io-client": "^1.4.5"
   }
 }
