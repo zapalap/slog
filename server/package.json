@@ -1,0 +1,14 @@
+{
+  "name": "slog-server",
+  "version": "0.0.1",
+  "description": "Simple server providing data for slog",
+  "main": "socket-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zapalap",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}

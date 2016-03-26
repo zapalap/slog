@@ -2,21 +2,22 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   socketService: Ember.inject.service('socket-io'),
-
+  store: Ember.inject.service(),
   willRender() {
     var self = this;
     const socket = this.get('socketService').socketFor('http://localhost:3000');
+    let store = this.get('store');
     socket.on('message', function(event) {
-      let newEntry = {
+      var newEntry = store.createRecord('entry', {
           verboseMessage:event.data.text,
           shortMessage:event.data.text,
           showing:true,
           isMarked:false,
           isVisible:true,
           timestamp:event.data.timestamp
-      }
-      console.log(newEntry);
-      self.get('logEntryList').pushObject(newEntry);
+      });
+      self.get('logEntryList').pushObject(newEntry._internalModel);
+      self.set('filterValue', event.data.text);
     })
   },
   menuShouldShow: Ember.computed.or('atLeastOneMarked', 'filterIsNotEmpty'),
@@ -24,6 +25,7 @@ export default Ember.Component.extend({
   filterIsNotEmpty: Ember.computed.notEmpty('filterValue'),
   filterValue:'',
   filteredLogs: Ember.computed('filterValue', function() {
+    console.log('computing');
     let filterValue = this.get('filterValue');
     return this.get('logEntryList').filter(function(entry) {
       return entry.get('verboseMessage').includes(filterValue);
