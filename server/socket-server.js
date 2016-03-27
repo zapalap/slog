@@ -19,6 +19,7 @@ const
     
     api.get('/api/entries', function(req, res) {
         res.send({entries:[{
+            id:id,
             verboseMessage: "None",
             shortMessage:"None",
             showing: true,
