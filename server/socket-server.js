@@ -1,13 +1,19 @@
 'use strict';
 const
     fs = require('fs'),
+    lineReader = require('line-by-line'),
     server = require('http').createServer(),
     io = require('socket.io')(server),
     api = require('express')(),
-    
-    filename = process.argv[2];
+    filename = process.argv[2],
+    lr = new lineReader(filename);
     
     let id = 0;
+    let lines = [];
+    
+    lr.on('line', (line) => {
+        lines.push(line);
+    });
     
     server.listen(3000);
     
@@ -18,15 +24,23 @@ const
     });
     
     api.get('/api/entries', function(req, res) {
-        res.send({entries:[{
-            id:id,
-            verboseMessage: "None",
-            shortMessage:"None",
-            showing: true,
-            timestamp:Date.now(),
-            isMarked:false,
-            isDimmed:false,
-            isVisible:false}]});
+        let entries = [];
+        
+        lines.forEach(function(line){
+        entries.push(
+            {
+                id:id++,
+                verboseMessage: line,
+                shortMessage:line,
+                showing: true,
+                timestamp:Date.now(),
+                isMarked:false,
+                isDimmed:false,
+                isVisible:false
+            });
+        });      
+        
+        res.send({entries:entries});
     });
     
     api.listen(3001);

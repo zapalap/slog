@@ -9,6 +9,7 @@
   "author": "zapalap",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "line-by-line": "^0.1.4"
   }
 }
