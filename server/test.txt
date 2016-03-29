@@ -1,3 +1,2 @@
-Linia pierwsza. Ta najwazniejsza.
-Linia druga. Nieduza.
-Linie trzecia. 
+Line one.
+

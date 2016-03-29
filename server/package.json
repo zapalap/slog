@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.3.4",
+    "chokidar": "^1.4.3",
     "express": "^4.13.4",
     "line-by-line": "^0.1.4",
     "line-by-line-promise": "0.0.1",
