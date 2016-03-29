@@ -16,7 +16,6 @@ export default Ember.Component.extend({
           isVisible:true,
           timestamp:event.data.timestamp
       });
-      self.get('logEntryList').pushObject(newEntry);
     })
   },
   menuShouldShow: Ember.computed.or('atLeastOneMarked', 'filterIsNotEmpty'),
