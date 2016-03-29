@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   socketService: Ember.inject.service('socket-io'),
   store: Ember.inject.service(),
-  willRender() {
+  didInsertElement() {
     var self = this;
     const socket = this.get('socketService').socketFor('http://localhost:3000');
     let store = this.get('store');
@@ -16,15 +16,14 @@ export default Ember.Component.extend({
           isVisible:true,
           timestamp:event.data.timestamp
       });
-      self.get('logEntryList').pushObject(newEntry._internalModel);
-      self.set('filterValue', event.data.text);
+      self.get('logEntryList').pushObject(newEntry);
     })
   },
   menuShouldShow: Ember.computed.or('atLeastOneMarked', 'filterIsNotEmpty'),
   atLeastOneMarked: false,
   filterIsNotEmpty: Ember.computed.notEmpty('filterValue'),
   filterValue:'',
-  filteredLogs: Ember.computed('filterValue', function() {
+  filteredLogs: Ember.computed('filterValue', 'logEntryList.@each', function() {
     console.log('computing');
     let filterValue = this.get('filterValue');
     return this.get('logEntryList').filter(function(entry) {
