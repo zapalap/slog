@@ -1,33 +1,25 @@
 'use strict';
 const
+    Promise = require('bluebird'),
     fs = require('fs'),
-    lineReader = require('line-by-line'),
-    server = require('http').createServer(),
-    io = require('socket.io')(server),
-    api = require('express')(),
-    filename = process.argv[2],
-    lr = new lineReader(filename);
+    lineReader = require('line-by-line-promise'),
+    api = require('./http_api/http_api.js')(3001),
+    sock = require('./sockets/server.js')(3000),
+    filename = process.argv[2];
     
     let id = 0;
-    let lines = [];
     
-    lr.on('line', (line) => {
-        lines.push(line);
-    });
-    
-    server.listen(3000);
-    
-    api.use(function(req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        next();
-    });
-    
-    api.get('/api/entries', function(req, res) {
-        let entries = [];
-        
-        lines.forEach(function(line){
-        entries.push(
+     api.get('/api/entries', function(req, res) {
+        let entries = [],
+            lines = [],
+            lr = new lineReader(filename);
+      
+      Promise.coroutine(function* (){
+          var line;
+          
+          while((line = yield lr.readLine()) !== null) {
+              console.log(line);
+               entries.push(
             {
                 id:id++,
                 verboseMessage: line,
@@ -38,19 +30,11 @@ const
                 isDimmed:false,
                 isVisible:false
             });
-        });      
+          }
+           res.send({entries:entries});
+      })();
         
-        res.send({entries:entries});
-    });
-    
-    api.listen(3001);
-
-    var sock = io.listen(server);
-        
-    sock.on('connection', function(socket) {
-       socket.on('disconnect', function(){
-           console.log('Client disconnected...')
-       }); 
+       
     });
     
     let watcher = fs.watch(filename, function() {

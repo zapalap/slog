@@ -23,7 +23,6 @@ export default Ember.Component.extend({
   filterIsNotEmpty: Ember.computed.notEmpty('filterValue'),
   filterValue:'',
   filteredLogs: Ember.computed('filterValue', 'logEntryList.@each', function() {
-    console.log('computing');
     let filterValue = this.get('filterValue');
     return this.get('logEntryList').filter(function(entry) {
       return entry.get('verboseMessage').includes(filterValue);
@@ -59,9 +58,4 @@ export default Ember.Component.extend({
       });
     }
   },
-
-  attributeBindings: [
-    'dataSpy:data-spy'
-  ],
-  dataSpy: 'affix',
 });
