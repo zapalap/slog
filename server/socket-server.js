@@ -8,8 +8,6 @@ const
     sock = require('./sockets/server.js')(3000),
     filename = process.argv[2];
     
-    let id = 0;
-    
      api.get('/api/entries', function(req, res) {
         let entries = [],
             lines = [],
@@ -17,12 +15,12 @@ const
       
       Promise.coroutine(function* (){
           var line;
+          var id = 0;
           
           while((line = yield lr.readLine()) !== null) {
-              console.log(line);
                entries.push(
             {
-                id:id++,
+                id:++id,
                 verboseMessage: line,
                 shortMessage:line,
                 showing: true,
@@ -45,7 +43,7 @@ const
         lr.on('line', function(line) {
             lastLine = line;
         }).on('end', function() {
-            let entry = {id:id++, timestamp:Date.now(), text:lastLine};
+            let entry = {timestamp:Date.now(), text:lastLine};
             sock.emit('message', {data:entry});
             console.log('Just sent '+ JSON.stringify(entry));
         });

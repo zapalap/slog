@@ -4,11 +4,11 @@ export default DS.Model.extend({
   verboseMessage: DS.attr('string'),
   shortMessage:DS.attr('string'),
   showing: DS.attr('boolean'),
-  timestamp:DS.attr('string'),
+  timestamp:DS.attr('date'),
   isMarked:DS.attr('boolean'),
   isDimmed:DS.attr('boolean'),
   isVisible:DS.attr('boolean'),
-  
+
   brief:Ember.computed('verboseMessage', function(){
      return this.get('verboseMessage').substr(0, 10);
   })

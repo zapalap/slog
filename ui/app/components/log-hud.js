@@ -14,7 +14,7 @@ export default Ember.Component.extend({
           showing:true,
           isMarked:false,
           isVisible:true,
-          timestamp:event.data.timestamp
+          timestamp:new Date(event.data.timestamp*1000).toString()
       });
     })
   },
@@ -51,7 +51,6 @@ export default Ember.Component.extend({
     },
     dimAllNotSelectedLogLines() {
       var notSelected = this.get('logEntryList').filterBy('isMarked', false);
-
       notSelected.forEach(function(model) {
         console.log(model);
         model.set('isDimmed', !model.get('isDimmed'));

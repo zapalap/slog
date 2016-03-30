@@ -4,7 +4,7 @@
     <div class="log-entry {{if logEntry.isMarked "marked"}} {{if logEntry.isDimmed "dimmed"}}">
         <span class="timestamp">
             <span class="bracket">[</span>
-          {{logEntry.timestamp}}
+          {{moment-format logEntry.timestamp}}
             <span class="bracket">]</span>
         </span>
         {{logEntry.verboseMessage}}
